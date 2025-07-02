@@ -11,8 +11,8 @@ const Login = () => {
   const navigate = useNavigate();
 
   const validateEmail = (email) => {
-    if (!email.endsWith("@vnit.ac.in")) {
-      setEmailError("Please use your VNIT email address (@vnit.ac.in)");
+    if (!email.endsWith("@students.vnit.ac.in")) {
+      setEmailError("Please use your VNIT email address (@students.vnit.ac.in)");
       return false;
     }
     setEmailError("");
@@ -22,8 +22,8 @@ const Login = () => {
   const handleEmailChange = (e) => {
     const value = e.target.value;
     setEmail(value);
-    if (value && !value.endsWith("@vnit.ac.in")) {
-      setEmailError("Please use your VNIT email address (@vnit.ac.in)");
+    if (value && !value.endsWith("@students.vnit.ac.in")) {
+      setEmailError("Please use your VNIT email address (@students.vnit.ac.in)");
     } else {
       setEmailError("");
     }

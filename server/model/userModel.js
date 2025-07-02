@@ -16,7 +16,7 @@ const userSchema = new mongoose.Schema({
         required: true,
         unique: true,
         lowercase: true,
-        match: /@vnit\.ac\.in$/  // restrictn to vnit.ac.in 
+        match: /@students\.vnit\.ac\.in$/  // restrictn to @students.vnit.ac.in 
 
     },
     password: {

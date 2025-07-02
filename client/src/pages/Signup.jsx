@@ -24,8 +24,8 @@ const Register = () => {
 
     if (!form.name.trim()) newErrors.name = "Name is required";
 
-    if (!form.email.endsWith("@vnit.ac.in")) {
-      newErrors.email = "Use VNIT email only (must end with @vnit.ac.in)";
+    if (!form.email.endsWith("@students.vnit.ac.in")) {
+      newErrors.email = "Use VNIT email only (must end with @students.vnit.ac.in)";
     }
 
     if (!form.password || form.password.length < 6) {
