@@ -22,9 +22,13 @@ import commentRouter from './routes/commentRoute.js';
 app.use(express.json());
 app.use(cookieParser());
 
+// app.use(cors({
+//   origin: 'http://localhost:5173',   // ✅ must match frontend origin
+//   credentials: true                 // ✅ allows cookies and auth headers
+// }));
 app.use(cors({
-  origin: 'http://localhost:5173',   // ✅ must match frontend origin
-  credentials: true                 // ✅ allows cookies and auth headers
+  origin: 'https://interview-experience-vnit.vercel.app',
+  credentials: true,
 }));
 
 app.use('/api/user', userRouter);
