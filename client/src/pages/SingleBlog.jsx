@@ -54,7 +54,7 @@ const SingleBlog = () => {
   useEffect(() => {
     const fetchBlog = async () => {
       try {
-        const res = await axios.get(`http://localhost:5000/api/blog/${id}`);
+        const res = await axios.get(`https://interview-experience-j3p6.onrender.com/api/blog/${id}`);
         setBlog(res.data); // ✅ set the blog directly
         setLoading(false);
       } catch (err) {
