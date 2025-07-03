@@ -3,7 +3,7 @@ import axios from "axios";
 
 // Create an Axios instance
 const instance = axios.create({
-  baseURL: "http://localhost:5000/api", // ✅ Use your backend URL
+  baseURL: "https://interview-experience-j3p6.onrender.com/api", // ✅ Use your backend URL
   withCredentials: true, // allow cookies (optional for now)
 });
 
