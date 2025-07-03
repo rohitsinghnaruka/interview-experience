@@ -165,7 +165,7 @@ const ReadBlogs = () => {
       if (filters.passOutYear.length) params.passOutYear = filters.passOutYear.join(",");
       if (companySearch) params.company = companySearch;
 
-      const res = await axios.get("http://localhost:5000/api/blog/get-all-blogs", { params });
+      const res = await axios.get("https://interview-experience-j3p6.onrender.com/api/blog/get-all-blogs", { params });
       setBlogs(res.data.blogs || []);
     } catch (err) {
       console.error("Error fetching blogs", err);
