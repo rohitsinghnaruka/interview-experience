@@ -1,9 +1,22 @@
+
 import React from "react";
 
 const About = () => {
   return (
     <div className="min-h-screen flex items-center justify-center bg-white text-gray-800 p-6">
-      <h1 className="text-3xl font-bold">About Us</h1>
+      <div className="max-w-xl text-center">
+        <h1 className="text-3xl font-bold mb-4">About Me</h1>
+        <p className="text-lg">
+          Hi! I’m <strong>Rohit Singh Naruka</strong>, a pre-final year student at
+          Visvesvaraya National Institute of Technology (VNIT), Nagpur. I'm from the
+          <strong> Department of Electronics and Communication Engineering (ECE)</strong>.
+        </p>
+        <p className="mt-4 text-base">
+          I’m passionate about full-stack web development, building real-world
+          projects, and preparing for software engineering roles. This platform was created
+          to help VNIT peers share and learn from placement & internship experiences.
+        </p>
+      </div>
     </div>
   );
 };
@@ -11,5 +24,3 @@ const About = () => {
 console.log("About component loaded");
 
 export default About;
-
-
