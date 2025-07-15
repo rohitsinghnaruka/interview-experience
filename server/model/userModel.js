@@ -32,7 +32,7 @@ const userSchema = new mongoose.Schema({
     department: {
         type: String,
         required: true,
-        enum: ['CSE', 'ECE', 'EEE', 'MECH', 'CIVIL', 'CHEMICAL', 'METALLURGY', 'MINING','ARCHITECTURE', 'OTHER']
+        enum: ['CSE', 'ECE', 'EEE', 'Mech', 'Civil', 'Chemical', 'MME', 'Mining','ARCH', 'OTHER']
     },
     passOutYear: {
         type: Number,
