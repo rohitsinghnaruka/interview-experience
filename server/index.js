@@ -20,7 +20,7 @@ app.use(cookieParser());
 
 app.use(cors({
   origin: 'https://interview-experience-vnit.vercel.app',
-  origin: 'https://interview-experience-20ym2eqa3-rohit-singhs-projects-543029cd.vercel.app'
+  origin: 'https://interview-experience-20ym2eqa3-rohit-singhs-projects-543029cd.vercel.app',
 
   credentials: true,
 }));
