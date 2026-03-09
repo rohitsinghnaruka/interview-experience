@@ -36,8 +36,9 @@ export const sendOtp = async (req,res)=>{
 
     }
     catch(err){
-        res.status(500).json({message:"Server error"});
-    }
+    console.log("OTP ERROR:", err);
+    res.status(500).json({message: err.message});
+}
 
 };
 
@@ -80,8 +81,10 @@ export const verifyOtp = async (req,res)=>{
 
     }
     catch(err){
-        res.status(500).json({message:"Server error"});
-    }
+        console.log("OTP ERROR:", err);
+    res.status(500).json({message: err.message});
+}
+    
 
 };
 
