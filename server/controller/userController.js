@@ -4,31 +4,86 @@ import errorHandler from "../utils/errorHandler.js";
 import bcrypt from "bcryptjs";
 import JWT from "jsonwebtoken";
 import nodemailer from 'nodemailer';
+import Otp from "../model/otp.js";
+import sendEmail from "../utils/sendEmail.js";
 
 
+export const sendOtp = async (req,res)=>{
 
- const transport = nodemailer.createTransport({
-    host: "smtp.ethereal.email",
-    port: 465,
-    secure: true,
-    auth: {
-        user: process.env.USER,
-        pass: process.env.PASS
+    try{
+
+        const {email} = req.body;
+
+        if(!email.endsWith("@students.vnit.ac.in")){
+            return res.status(400).json({
+                message:"Only VNIT emails allowed"
+            });
+        }
+
+        const otp = Math.floor(100000 + Math.random()*900000);
+
+        await Otp.create({
+            email,
+            otp,
+            expiresAt: Date.now() + 5*60*1000
+        });
+
+        await sendEmail(email,otp);
+
+        res.json({
+            message:"OTP sent successfully"
+        });
+
     }
-});
+    catch(err){
+        res.status(500).json({message:"Server error"});
+    }
+
+};
 
 
+export const verifyOtp = async (req,res)=>{
 
-// const transport = nodemailer.createTransport({
-//     service: 'Gmail',
-//     port: 465,
-//     secure: true,
-//     auth: {
-//         user: process.env.USER,
-//         pass: process.env.PASS
-//     }
-// });
+    try{
 
+        const {email,otp,password,name,enrollment,department,passoutYear} = req.body;
+
+        const record = await Otp.findOne({email,otp});
+
+        if(!record){
+            return res.status(400).json({message:"Invalid OTP"});
+        }
+
+        if(record.expiresAt < Date.now()){
+            return res.status(400).json({message:"OTP expired"});
+        }
+
+        const genSalt = await bcrypt.genSalt(10);
+        const hashedPassword = await bcrypt.hash(password, genSalt);
+
+        const user = new userModel({
+            name,
+            email,
+            password: hashedPassword,
+            enrollmentNumber: enrollment,
+            department,
+            passOutYear: passoutYear
+        });
+
+        await user.save();
+
+        await Otp.deleteOne({email});
+
+        res.json({
+            message:"Registration successful"
+        });
+
+    }
+    catch(err){
+        res.status(500).json({message:"Server error"});
+    }
+
+};
 
 // GET REQ  : Fetching User :
 export const getUser = asyncHandler(async (req, res, next) => {
