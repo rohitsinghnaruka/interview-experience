@@ -20,8 +20,7 @@ app.use(cookieParser());
 
 app.use(cors({
   origin: 'http://16.112.168.189',
-  //origin: 'https://interview-experience-20ym2eqa3-rohit-singhs-projects-543029cd.vercel.app',
-
+  origin: 'https://hirestories-vnit.online',
   credentials: true,
 }));
 

@@ -3,7 +3,7 @@ import axios from "axios";
 
 // Create an Axios instance
 const instance = axios.create({
-  baseURL: "http://16.112.168.189:5000/api", // ✅ Use your backend URL
+  baseURL: "https://hirestories-vnit.online/api", // ✅ Use your backend URL
   withCredentials: true, // allow cookies (optional for now)
 });
 
